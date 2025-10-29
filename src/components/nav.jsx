@@ -1,17 +1,32 @@
+import { IconHeart } from "@tabler/icons-react";
 import React from "react";
 
-
 export default function Nav({ onShowFav, favourites }) {
-  
+  const NameArray = ["My Gallery", "Image Hub", "PicSpot", "SnapSpace", "FotoFlow","abbas's Gallery"];
+  const appName = NameArray[Math.floor(Math.random() * NameArray.length)];
   return (
-    <div className="flex justify-between w-full bg-[#ffffffd2] p-1.5 mb-5">
-      <h2 className="text-[25px] font-semibold text-gray-800">Gallery App</h2>
+    <div className=" flex align-middle justify-between w-full bg-[#ffffff00] p-1.5 mb-2">
+<h2 className="text-[30px] sm:text-[40px] mb-1 font-bold text-gray-100 ml-2">
+  {appName}
+</h2>
       <button
-        onClick={onShowFav}
-        className="bg-transparent border border-pink-600 text-pink-600 py-1 text-2xl rounded hover:bg-pink-300 hover:text-white transition cursor-pointer p-2"
-      >
-        ❤️‍🩹 Favourite {favourites.length > 0 && `(${favourites.length})`}
-      </button>
+  id="favButton"
+  onClick={onShowFav}
+  className="
+    backdrop-blur-2xl
+    gap-1 font-medium
+    bg-[#8888885d] border border-[#cfcfcf52] rounded-3xl
+    text-[#ffffffcc] text-[15px] sm:text-[17px] md:text-[19px]
+    hover:bg-[#8b8b8b2d] hover:text-white
+    transition cursor-pointer flex items-center justify-center
+    px-2 py-0.5 sm:px-3 sm:py-0.5 md:px-4 md:py-1
+    mr-2 mt-2 sm:mr-4
+  "
+>
+  <IconHeart className="text-[18px] sm:text-[20px] md:text-[22px]" />
+  <span className="ml-1">Favourite{favourites.length > 0 && ` (${favourites.length})`}</span>
+</button>
+
     </div>
   );
 }
